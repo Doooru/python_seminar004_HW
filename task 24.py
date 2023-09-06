@@ -19,13 +19,14 @@
 """
 
 n = int(input('Введите количество кустов: '))
-max = 0
+my_max = 0
 list_input = list()
 
 for i in range(n):
     list_input.append(int(input(f'Введите число ягод на {i+1}-ом кусте: ')))
 
-for i in range(1,n-1):
-    if max < list_input[i-1]+list_input[i]+list_input[i+1]:
-        max = list_input[i-1]+list_input[i]+list_input[i+1]
-print(max)
+for i in range(n):
+    if my_max < list_input[0]+list_input[1]+list_input[2]:
+        my_max = list_input[0]+list_input[1]+list_input[2]
+    list_input.insert(0, list_input.pop())
+print(my_max)
